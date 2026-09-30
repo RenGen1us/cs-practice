@@ -1,4 +1,4 @@
-limit = int(input())
+limit = float(input())
 n = int(input())
 c = ce = cl = cs = s = 0
 mx = -1000000000500000000
