@@ -1,12 +1,15 @@
 def winner(names: list[str], scores: list[float]):
-    mx = -1
+    mx = float('-inf')
     best_players = []
+    best_scores = []
     for i in range(len(scores)):
         if scores[i] > mx:
             mx = scores[i]
+            best_scores.append(scores[i])
             best_players.append(names[i])
-    if best_players[-1] == best_players[-2]:
-        return best_players[-2]
+    if len(best_scores) > 1:
+        if best_scores[-1] == best_scores[-2]:
+            return best_players[-2]
     return best_players[-1]
 
 def average(scores: list[float]):
@@ -15,7 +18,7 @@ def average(scores: list[float]):
     return 0
 
 def ranking(names: list[str], scores: list[float]):
-    order = sorted(range(len(scores)), key=lambda i: scores[i])
+    order = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)
     return [names[j] for j in order]
 
 def above_average(names: list[str], scores: list[float]):
