@@ -10,14 +10,18 @@ def winner(names: list[str], scores: list[float]):
     return best_players[-1]
 
 names =  ["Аня", "Боря", "Вика"]
-scores = [7.0,   9.0,    9.0]
+scores = [7.0,   9.0,   9.0]
 
 def average(scores: list[float]):
     if scores:
         return f'{sum(scores) / len(scores):.2f}'
     return 0
 
+def ranking(names: list[str], scores: list[float]):
+    order = sorted(range(len(scores)), key=lambda i: scores[i])
+    return [names[j] for j in order]
 
+print(ranking(names, scores))
     
     
         
