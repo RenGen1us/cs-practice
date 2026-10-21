@@ -5,16 +5,18 @@ def count_items(values: list):
     return counts
 
 def unique_sorted(values: list):
-    c = []
-    for value in values:
-        c.append(value)
-    return sorted(set(c))
+    return sorted(set(values))
 
+def common(first: list, second: list):
+    p = []
+    for item in first:
+        if item in second:
+            p.append(item)
+    return sorted(p)
 
-values = ["ошибка", "запуск", "ошибка", "проверка"]
-
-print(count_items(values))   # {"ошибка": 2, "запуск": 1, "проверка": 1}
-print(unique_sorted(values))  # ["запуск", "ошибка", "проверка"]
-
-# common(["иванов", "петрова"], ["петрова", "котов"])        # ["петрова"]
-# only_in_first(["иванов", "петрова"], ["петрова", "котов"]) # ["иванов"]
+def only_in_first(first: list, second: list):
+    p = []
+    for item in first:
+        if item not in second:
+            p.append(item)
+    return sorted(p)
