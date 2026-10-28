@@ -8,15 +8,9 @@ def unique_sorted(values: list):
     return sorted(set(values))
 
 def common(first: list, second: list):
-    p = []
-    for item in first:
-        if item in second:
-            p.append(item)
-    return sorted(p)
+    c = set(first) & set(second)
+    return sorted(c)
 
 def only_in_first(first: list, second: list):
-    p = []
-    for item in first:
-        if item not in second:
-            p.append(item)
-    return sorted(p)
+    c = set(first) - set(second)
+    return sorted(c)
